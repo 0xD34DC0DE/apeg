@@ -1,10 +1,23 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import macro from 'valtio/macro/vite'
+import macro from 'valtio/macro/vite';
+import svgr from 'vite-plugin-svgr';
+import htmlPlugin from 'vite-plugin-html-config';
 
 // https://vitejs.dev/config/
+const htmlPluginOptions = {
+  preHeadScripts: [
+    {
+      src: "http://localhost:8097"
+    }
+  ]
+}
 export default defineConfig({
-  plugins: [react(), macro],
+  plugins: [htmlPlugin(htmlPluginOptions), react(), macro, svgr(
+      {
+        include: '**/*.svg'
+      }
+  )],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   // prevent vite from obscuring rust errors
