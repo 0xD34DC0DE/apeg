@@ -2,7 +2,6 @@ import React from 'react';
 import {Divider} from "@mui/material";
 
 export interface MenuBarDividerItemProps {
-    nestingLevel?: number;
 }
 
 const MenuBarDividerItem = ({}: MenuBarDividerItemProps) => {
