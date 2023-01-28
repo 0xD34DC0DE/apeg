@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {ClickAwayListener, Paper, Stack, TextField, Typography, useTheme} from "@mui/material";
 import SliderListener, {MouseDragEvent} from "../SliderListener";
-import {useOnViewportChange} from "reactflow";
+import {useOnViewportChange, useReactFlow} from "reactflow";
 
 
 interface ValueSliderProps {
@@ -29,7 +29,7 @@ const ValueSlider = ({
     const [sliderValue, setSliderValue] = useState(value);
     const [inputMode, setInputMode] = useState<"drag" | "keyboard">("drag");
     const containerRef = useRef<HTMLDivElement>(null);
-    const zoomRef = useRef<number>(1);
+    const currentZoom = useReactFlow().getZoom();
     const fillPercentage = ((sliderValue - min) / (max - min) * 100).toFixed(2);
     const fillColor = theme.palette.primary.light;
     const gradient = `linear-gradient(90deg, ${fillColor} ${fillPercentage}%, rgb(0,0,0,0) ${fillPercentage}%)`;
@@ -38,9 +38,6 @@ const ValueSlider = ({
     useOnViewportChange({
         onStart: () => {
             if (inputMode == "keyboard") setInputMode("drag");
-        },
-        onEnd: (viewport) => {
-            zoomRef.current = viewport.zoom;
         }
     });
 
@@ -94,7 +91,7 @@ const ValueSlider = ({
                                     }}
                                     InputProps={{disableUnderline: true,}}
                                     style={{
-                                        width: containerRef.current!.getBoundingClientRect().width / zoomRef.current - 2,
+                                        width: containerRef.current!.getBoundingClientRect().width / currentZoom - 2
                                     }}
                                     onChange={(evt) => {
                                         console.log(evt.target.value);
