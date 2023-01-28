@@ -3,6 +3,7 @@ import 'reactflow/dist/style.css';
 import {Container, Paper, Typography, useTheme} from "@mui/material";
 import LabelSlot from "./LabelSlot";
 import ValueSlot from "./slots/ValueSlot";
+import VectorSlot from "./slots/VectorSlot";
 
 interface BaseNodeProps {
     data: {
@@ -29,7 +30,8 @@ const BaseNode = ({data}: BaseNodeProps) => {
             <Container style={{padding: 5, minWidth: 140}}>
                 <ValueSlot label={"Value"} index={1} type={"input"}/>
                 <LabelSlot label={"Color"} index={2} type={"input"}/>
-                <LabelSlot label={"Color"} index={3} type={"output"}/>
+                <LabelSlot label={"Value"} index={1} type={"output"}/>
+                <VectorSlot label={"Color"} index={4} type={"input"} components={"rgb"}/>
             </Container>
         </Paper>
     );
