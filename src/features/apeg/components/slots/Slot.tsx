@@ -31,7 +31,6 @@ const Slot = ({index, type, children}: SlotProps) => {
                     React.Children.map(children, (child, i) => {
                         if (React.isValidElement(child)) {
                             if (i == 0) {
-                                console.log("wrap")
                                 return <div ref={slotRef as React.RefObject<HTMLDivElement>}>
                                     <child.type {...child.props}/>
                                 </div>
