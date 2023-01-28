@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Handle, Position, useUpdateNodeInternals} from "reactflow";
+import {Stack} from "@mui/material";
 
 export interface SlotProps {
     index: number;
@@ -23,10 +24,25 @@ const Slot = ({index, type, children}: SlotProps) => {
     }, [slotRef]);
 
     return (
-        <div ref={slotRef as React.RefObject<HTMLDivElement>}>
+        <>
             <Handle type={handleType} position={position} id={index.toString()} style={{top: handleTop}}/>
-            {children}
-        </div>
+            <Stack spacing={.5}>
+                {children &&
+                    React.Children.map(children, (child, i) => {
+                        if (React.isValidElement(child)) {
+                            if (i == 0) {
+                                console.log("wrap")
+                                return <div ref={slotRef as React.RefObject<HTMLDivElement>}>
+                                    <child.type {...child.props}/>
+                                </div>
+                            } else {
+                                return <child.type {...child.props}/>
+                            }
+                        }
+                    })
+                }
+            </Stack>
+        </>
     );
 }
 
