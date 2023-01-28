@@ -39,12 +39,6 @@ interface NodeEditorViewPortProps {
 
 }
 
-export type NodeEditorContextType = {
-    viewportChanging: boolean;
-}
-
-export const NodeEditorContext = React.createContext<NodeEditorContextType>({viewportChanging: false});
-
 const NodeEditorViewPort = ({}: NodeEditorViewPortProps) => {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
