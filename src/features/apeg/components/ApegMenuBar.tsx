@@ -1,11 +1,11 @@
 import React from 'react';
 // @ts-ignore
-import {ReactComponent as FolderOpenIcon} from '../../assets/folder-open.svg'
-import MenuBar from "../../components/menu_bar/MenuBar";
-import MenuBarGroup from "../../components/menu_bar/MenuBarGroup";
-import MenuBarActionItem from "../../components/menu_bar/MenuBarActionItem";
-import MenuBarDividerItem from "../../components/menu_bar/MenuBarDividerItem";
-import MenuBarSubMenuItem from "../../components/menu_bar/MenuBarSubMenuItem";
+import {ReactComponent as FolderOpenIcon} from '../../../assets/folder-open.svg'
+import MenuBar from "../../../components/menu_bar/MenuBar";
+import MenuBarGroup from "../../../components/menu_bar/MenuBarGroup";
+import MenuBarActionItem from "../../../components/menu_bar/MenuBarActionItem";
+import MenuBarDividerItem from "../../../components/menu_bar/MenuBarDividerItem";
+import MenuBarSubMenuItem from "../../../components/menu_bar/MenuBarSubMenuItem";
 
 interface ApegMenuBarProps {
 }
