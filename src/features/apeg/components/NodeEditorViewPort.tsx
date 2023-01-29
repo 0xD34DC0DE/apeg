@@ -18,7 +18,7 @@ import BaseNode from "./BaseNode";
 const initialNodes: Node[] = [
     {
         id: '1',
-        type: 'textUpdater',
+        type: 'base',
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
         position: {x: 0, y: 0},
@@ -26,14 +26,17 @@ const initialNodes: Node[] = [
     },
     {
         id: '2',
+        type: 'base',
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
-        position: {x: 0, y: 100},
-        data: {label: '2'}
+        position: {x: 200, y: 0},
+        data: {label: 'Testing Node2'}
     },
 ];
 
-const initialEdges = [{id: 'e1-2', source: '1', target: '2'}];
+const initialEdges = [
+    {id: 'e1-2', source: '1', target: '2', sourceHandle: 'color-2', targetHandle: 'color-4'}
+];
 
 interface NodeEditorViewPortProps {
 
@@ -43,7 +46,7 @@ const NodeEditorViewPort = ({}: NodeEditorViewPortProps) => {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const onConnect = useCallback((params: Edge | Connection) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
-    const nodeTypes = useMemo(() => ({textUpdater: BaseNode}), []);
+    const nodeTypes = useMemo(() => ({base: BaseNode}), []);
 
 
     return (

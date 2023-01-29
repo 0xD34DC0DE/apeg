@@ -27,11 +27,13 @@ const BaseNode = ({data}: BaseNodeProps) => {
                 {data.label}
             </Typography>
 
-            <Container style={{padding: 5, minWidth: 140}}>
-                <ValueSlot label={"Value"} index={1} type={"input"}/>
-                <LabelSlot label={"Color"} index={2} type={"input"}/>
-                <LabelSlot label={"Value"} index={1} type={"output"}/>
-                <VectorSlot label={"Color"} index={4} type={"input"} components={"rgb"}/>
+            <Container style={{paddingLeft: 7, paddingRight: 7, paddingTop: 5, paddingBottom: 5, minWidth: 140}}>
+                <LabelSlot label={"Transform"} index={1} flow={"output"} type="matrix"/>
+                <LabelSlot label={"Color"} index={2} flow={"output"} type="color"/>
+                <div style={{height: 10}}/>
+                <ValueSlot label={"Value"} index={3} flow={"input"}/>
+                <LabelSlot label={"Color"} index={4} flow={"input"} type="color"/>
+                <VectorSlot label={"Position"} index={5} flow={"input"} components={"rgb"}/>
             </Container>
         </Paper>
     );

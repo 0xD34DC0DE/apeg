@@ -1,37 +1,26 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Handle, Position, useUpdateNodeInternals} from "reactflow";
+import React, {useRef} from 'react';
 import {Stack} from "@mui/material";
+import TypedHandle, {HandleType} from "./TypedHandle";
 
 export interface SlotProps {
     index: number;
-    type: "input" | "output";
+    flow: "input" | "output";
+    type: HandleType;
     children?: React.ReactNode;
 }
 
-const Slot = ({index, type, children}: SlotProps) => {
-    const slotRef = useRef<HTMLElement>(null);
-    const [handleTop, setHandleTop] = useState(0);
-    const updateNodeInternals = useUpdateNodeInternals();
-
-    const position = type === "input" ? Position.Left : Position.Right;
-    const handleType = type === "input" ? "target" : "source";
-
-    useEffect(() => {
-        if (slotRef.current) {
-            setHandleTop(slotRef.current.offsetTop + slotRef.current.clientHeight / 2);
-            setTimeout(() => updateNodeInternals(index.toString()), 0);
-        }
-    }, [slotRef]);
+const Slot = ({index, flow, type, children}: SlotProps) => {
+    const firstChildRef = useRef<HTMLElement>(null);
 
     return (
         <>
-            <Handle type={handleType} position={position} id={index.toString()} style={{top: handleTop}}/>
+            <TypedHandle flow={flow} type={type} index={index} anchor={firstChildRef}/>
             <Stack spacing={.5}>
                 {children &&
                     React.Children.map(children, (child, i) => {
                         if (React.isValidElement(child)) {
                             if (i == 0) {
-                                return <div ref={slotRef as React.RefObject<HTMLDivElement>}>
+                                return <div ref={firstChildRef as React.RefObject<HTMLDivElement>}>
                                     <child.type {...child.props}/>
                                 </div>
                             } else {

@@ -7,7 +7,7 @@ interface LabelSlotProps extends SlotProps {
 }
 
 const LabelSlot = ({label, ...slotProps}: LabelSlotProps) => {
-    const textAlignment = slotProps.type === "input" ? "left" : "right";
+    const textAlignment = slotProps.flow === "input" ? "left" : "right";
 
     return (
         <Slot {...slotProps}>

@@ -3,7 +3,7 @@ import Slot, {SlotProps} from "./Slot";
 import ValueSlider from "./ValueSlider";
 import {Typography} from "@mui/material";
 
-interface VectorSlotProps extends SlotProps {
+interface VectorSlotProps extends Omit<SlotProps, "type"> {
     label: string;
     components: "uv" | "rgb" | "rgba" | "2d" | "3d" | "4d";
 }
@@ -18,7 +18,7 @@ const VectorSlot = ({label, components, ...slotProps}: VectorSlotProps) => {
     }
 
     return (
-        <Slot {...slotProps}>
+        <Slot {...slotProps} type="vector">
             <Typography fontSize={"small"}>{label}:</Typography>
             {
                 getComponents(components).map((component, index) => {
