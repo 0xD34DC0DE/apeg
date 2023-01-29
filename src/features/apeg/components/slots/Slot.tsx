@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import {Stack} from "@mui/material";
-import TypedHandle, {HandleType} from "./TypedHandle";
+import TypedHandle from "./TypedHandle";
+import {HandleType} from "./HandleType";
 
 export interface SlotProps {
     index: number;

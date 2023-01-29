@@ -1,24 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Handle, Position, useUpdateNodeInternals} from "reactflow";
 import {useTheme} from "@mui/material";
-
-export type HandleType = "color" | "vector" | "matrix" | "scalar" | "string" | "boolean" | "object";
+import {HandleType, handleTypeColors} from "./HandleType";
 
 interface TypedHandleProps {
     index: number;
     flow: "input" | "output";
     type: HandleType;
     anchor: React.RefObject<HTMLElement>;
-}
-
-const handleTypeColors = {
-    color: "#c7c729",
-    vector: "#6363c7",
-    matrix: "#ff904f",
-    scalar: "#a1a1a1",
-    string: "#70b2ff",
-    boolean: "#cca6d6",
-    object: "#00d6a3",
 }
 
 const TypedHandle = ({index, flow, type, anchor}: TypedHandleProps) => {
@@ -52,12 +41,7 @@ const TypedHandle = ({index, flow, type, anchor}: TypedHandleProps) => {
             }}
             isValidConnection={(connection) => {
                 if (connection.sourceHandle === connection.targetHandle) return false;
-                if (connection.source === connection.target) return false;
-
-                const sourceType = connection?.sourceHandle?.split("-")[0] ?? "";
-                const targetType = connection?.targetHandle?.split("-")[0] ?? "";
-
-                return sourceType === targetType;
+                return connection.source !== connection.target;
             }}
         />
     );
