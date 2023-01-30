@@ -36,7 +36,7 @@ const NodeEditorTabs = ({tabs, onTabChange, closeTab}: NodeEditorTabsProps) => {
                                 {`${tab.name} ${tab.dirty ? "*  " : ""}`}
                                 <IconButton
                                     size="small"
-                                    sx={{display: "inline", p: 0, minWidth: 0, minHeight: 0}}
+                                    sx={{p: 0, minWidth: 0, minHeight: 0}}
                                     onClick={(event) => {
                                         event.stopPropagation();
                                         closeTab(tab.graphId);
