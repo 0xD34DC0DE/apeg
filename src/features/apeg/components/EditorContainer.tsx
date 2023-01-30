@@ -11,7 +11,13 @@ const EditorContainer = ({children}: EditorContainerProps) => {
     const theme = useTheme();
     return (
         <>
-            <Stack direction="row" spacing={1} justifyContent="center" sx={{background: theme.palette.primary.dark}}>
+            <Stack
+                direction="row"
+                spacing={1}
+                justifyContent="center"
+                sx={{
+                    borderTop: `1px solid ${theme.palette.divider}`,
+                }}>
                 {children}
             </Stack>
             <Routes>
@@ -24,7 +30,7 @@ const EditorContainer = ({children}: EditorContainerProps) => {
                     })
                 }
             </Routes>
-            <Box  display="flex" flex='1' flexDirection="column">
+            <Box display="flex" flex='1' flexDirection="column">
                 <Outlet/>
             </Box>
         </>

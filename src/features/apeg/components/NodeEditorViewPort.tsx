@@ -35,7 +35,7 @@ const initialNodes: Node[] = [
     },
 ];
 
-const initialEdges = [
+const initialEdges: Edge[] = [
     {
         id: 'e1-2',
         source: '1',
@@ -67,7 +67,7 @@ const NodeEditorViewPort = ({}: NodeEditorViewPortProps) => {
     }, [setEdges]);
 
     return (
-        <Box width={1}>
+        <Box width={1} height={1}>
             <ReactFlow
                 nodes={nodes}
                 edges={edges}

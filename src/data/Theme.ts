@@ -10,12 +10,19 @@ const theme: ThemeOptions = {
         },
         secondary: {
             main: '#ef5350',
+            light: '#ff867c',
+            dark: '#b61827',
         },
         text: {
            secondary: '#ffffff',
            disabled: '#4e4e4e',
            primary: '#fdfdfd',
-        }
+        },
+        background: {
+            default: '#1e1e1e',
+            paper: '#2e2e2e',
+        },
+
     }
 };
 
