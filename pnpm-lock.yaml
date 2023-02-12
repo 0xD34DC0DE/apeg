@@ -4,6 +4,7 @@ specifiers:
   '@babel/core': '>=7.0.0 <8.0.0'
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
+  '@excalidraw/excalidraw': ^0.14.2
   '@mui/icons-material': ^5.11.0
   '@mui/material': ^5.11.4
   '@react-three/fiber': ^8.10.0
@@ -33,6 +34,7 @@ dependencies:
   '@babel/core': 7.20.12
   '@emotion/react': 11.10.5_jp5qgyg6plq757v5hojp7ls2oe
   '@emotion/styled': 11.10.5_jp5djshq6aqfasno3mth3hguci
+  '@excalidraw/excalidraw': 0.14.2_biqbaboplfbrettd7655fr4n2y
   '@mui/icons-material': 5.11.0_6zueiyxsk3wwk7ardr4xipkxnu
   '@mui/material': 5.11.4_lskpmcsdi7ipu6qpuapyu56ihm
   '@react-three/fiber': 8.10.0_4tzez3c2xpzuefjrvhpyy55bva
@@ -585,6 +587,16 @@ packages:
     os: [win32]
     requiresBuild: true
     optional: true
+
+  /@excalidraw/excalidraw/0.14.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-8LdjpTBWEK5waDWB7Bt/G9YBI4j0OxkstUhvaDGz7dwQGfzF6FW5CXBoYHNEoX0qmb+Fg/NPOlZ7FrKsrSVCqg==}
+    peerDependencies:
+      react: ^17.0.2 || ^18.2.0
+      react-dom: ^17.0.2 || ^18.2.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}

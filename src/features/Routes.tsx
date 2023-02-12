@@ -6,6 +6,7 @@ import ApegApp, {apeg_route, apeg_icon, apeg_name} from "./apeg/ApegApp";
 import FooApp, {foo_route, foo_icon, foo_name} from "./foo/FooApp";
 
 import Root from "../Root";
+import LazyLatexApp, {lazy_latex_icon, lazy_latex_name, lazy_latex_route} from "./lazy_latex/LazyLatexApp";
 
 export const routes: RouteObject[] = [
     {
@@ -30,6 +31,14 @@ export const routes: RouteObject[] = [
                 handle: {
                     name: foo_name,
                     icon: foo_icon
+                } as AppInfo
+            },
+            {
+                path: lazy_latex_route,
+                element: <LazyLatexApp/>,
+                handle: {
+                    name: lazy_latex_name,
+                    icon: lazy_latex_icon
                 } as AppInfo
             }
         ]
