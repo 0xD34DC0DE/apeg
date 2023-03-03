@@ -3,3 +3,4 @@
 /target/
 
 /persistence/persistence-internal/target/
+/test.db
