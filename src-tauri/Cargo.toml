@@ -20,6 +20,7 @@ tauri = { version = "1.2", features = ["api-all"] }
 jammdb = "0.9.0"
 serde_with = "2.2.0"
 bson = "2.5.0"
+persistence = {path = "persistence" }
 
 [features]
 # by default Tauri runs in production mode

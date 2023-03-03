@@ -64,6 +64,7 @@ version = "0.0.0"
 dependencies = [
  "bson",
  "jammdb",
+ "persistence",
  "serde",
  "serde_json",
  "serde_with 2.2.0",
@@ -1951,6 +1952,36 @@ name = "percent-encoding"
 version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "478c572c3d73181ff3c2539045f6eb99e5491218eae919370993b890cdbdd98e"
+
+[[package]]
+name = "persistence"
+version = "0.1.0"
+dependencies = [
+ "bson",
+ "jammdb",
+ "persistence-internal",
+ "persistence-macro",
+ "serde",
+]
+
+[[package]]
+name = "persistence-internal"
+version = "0.1.0"
+dependencies = [
+ "bson",
+ "serde",
+]
+
+[[package]]
+name = "persistence-macro"
+version = "0.1.0"
+dependencies = [
+ "bson",
+ "persistence-internal",
+ "quote",
+ "serde",
+ "syn",
+]
 
 [[package]]
 name = "pest"
